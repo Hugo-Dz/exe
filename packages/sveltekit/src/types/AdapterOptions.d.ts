@@ -1,5 +1,6 @@
 type Target =
 	| "linux-x64"
+	| "linux-x64-baseline"
 	| "macos-arm64"
 	| "windows-x64"
 	| "darwin-x64"
