@@ -2,8 +2,10 @@ import type { CLIArgs } from "../types/CLIArgs";
 
 export const VALID_TARGETS = [
 	"linux-x64",
+	"linux-x64-baseline",
 	"macos-arm64",
 	"windows-x64",
+	"windows-x64-baseline",
 	"darwin-x64",
 	"darwin-arm64",
 	"linux-x64-musl",
