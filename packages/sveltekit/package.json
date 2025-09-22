@@ -5,7 +5,7 @@
     "build": "bun build.ts"
   },
   "module": "dist/index.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "EXE is an adapter for SvelteKit to build a standalone executable with full stack features such as SSR, API routes, server hooks....",
   "author": "Hugo Duprez",
   "license": "MIT",
