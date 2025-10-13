@@ -90,6 +90,20 @@ async function getFile(pathname: string) {
 	}
 }
 
+async function gracefulShutdown(reason: 'SIGINT' | 'SIGTERM') {
+	console.info('Stopping server...');
+	// @ts-expect-error custom events cannot be typed
+	process.emit('sveltekit:shutdown', reason);
+	await server.stop(true);
+	console.info('Stopped server');
+
+	process.removeListener('SIGINT', gracefulShutdown);
+	process.removeListener('SIGTERM', gracefulShutdown);
+}
+
+process.on('SIGTERM', gracefulShutdown);
+process.on('SIGINT', gracefulShutdown);
+
 const server = Bun.serve({
 	port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
 	hostname: "0.0.0.0",
