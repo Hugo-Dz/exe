@@ -20,4 +20,6 @@ export declare type AdapterOptions = {
 	target?: Target;
 	/** Volume mount point for the binary (default no volume mount). Can be used for persistent storage, usually /data. */
 	volume?: string;
+	/** Additional arguments to pass to bun build --compile (e.g. ["--minify", "--sourcemap"]) */
+	bunArgs?: string[];
 };

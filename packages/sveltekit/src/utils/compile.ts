@@ -12,7 +12,7 @@ import { SVELTEKIT_DIR, TARGETS_MAP } from "../constants/const";
 
 export async function compileApplication(
 	builder: Builder,
-	options: { target?: Target; out: string; binaryName: string }
+	options: { target?: Target; out: string; binaryName: string; bunArgs?: string[] }
 ) {
 	try {
 		const bunVersion = execSync("bun --version", { encoding: "utf8", stdio: "pipe" }).trim();
@@ -47,6 +47,7 @@ export async function compileApplication(
 		"build",
 		"--compile",
 		...(options.target ? [`--target=${TARGETS_MAP[options.target]}`] : []),
+		...(options.bunArgs || []),
 		join(SVELTEKIT_DIR, "temp-server/index.ts"),
 		"--outfile",
 		join(options.out, options.binaryName),

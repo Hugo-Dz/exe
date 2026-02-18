@@ -46,6 +46,7 @@ export async function compileApplication(options: CLIArgs) {
 		"build",
 		"--compile",
 		...(options.target ? [`--target=${TARGETS_MAP[options.target]}`] : []),
+		...(options.bunArgs || []),
 		".output/bundle.js",
 		"--outfile",
 		join(out, binaryName),

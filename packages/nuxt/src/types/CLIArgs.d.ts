@@ -20,4 +20,6 @@ export declare type CLIArgs = {
 	volume?: string;
 	/** External dependencies to exclude from bundling (comma-separated string or array) */
 	external?: string | string[];
+	/** Additional arguments to pass to bun build --compile (e.g. ["--minify", "--sourcemap"]) */
+	bunArgs?: string[];
 };
